@@ -1,31 +1,38 @@
-review
-"My mentor was very supportive and I learned a lot during my internship"
-"The workload was overwhelming and I didn’t receive much guidance"
-"Great team environment and I felt included in important projects"
-"I was mostly doing repetitive tasks and didn’t learn much"
-"The internship helped me build strong technical skills"
-"Communication from management was unclear and confusing"
-"I gained valuable real-world experience and confidence"
-"The pay was low and the work felt undervalued"
-"My coworkers were helpful and always willing to answer questions"
-"I felt lost most of the time due to lack of training"
-"The company culture was positive and encouraging"
-"I didn’t get meaningful work and felt ignored"
-"I learned a lot about teamwork and collaboration"
-"The expectations were unrealistic for an intern"
-"My manager gave me constructive feedback regularly"
-"I struggled because there was no clear direction"
-"It was a great opportunity to network and grow professionally"
-"The workload was too heavy for an intern position"
-"I enjoyed working on real projects that made an impact"
-"I felt like my contributions were not appreciated"
-"The onboarding process was smooth and helpful"
-"I had difficulty balancing the workload and deadlines"
-"My team made the experience enjoyable and productive"
-"I was given tasks that didn’t match my skill level"
-"The internship boosted my confidence in my abilities"
-"There was little to no mentorship provided"
-"I appreciated the learning opportunities and support"
-"The environment was stressful and unorganized"
-"I developed new skills that will help my career"
-"I didn’t feel challenged or engaged in my work"
+review,label
+"My mentor was amazing and I learned a lot",1
+"The workload was overwhelming and confusing",0
+"Great team and good learning experience",1
+"I didn’t get meaningful work",0
+"The internship helped me grow my technical skills",1
+"I felt lost most of the time with no guidance",0
+"Supportive environment and helpful coworkers",1
+"The tasks were repetitive and boring",0
+"I gained real-world experience in software development",1
+"The expectations were too high for an intern",0
+"My manager gave clear feedback and direction",1
+"There was little communication from the team",0
+"I enjoyed collaborating with talented engineers",1
+"I was not given meaningful projects to work on",0
+"The internship exceeded my expectations",1
+"I struggled due to lack of onboarding",0
+"Great exposure to real industry tools and workflows",1
+"The work was stressful and poorly structured",0
+"I learned a lot about teamwork and collaboration",1
+"I felt unsupported throughout the internship",0
+"Excellent mentorship and career guidance",1
+"The environment was disorganized",0
+"I built strong coding and problem-solving skills",1
+"I was mostly doing documentation work",0
+"Very positive and encouraging workplace",1
+"I didn’t feel like part of the team",0
+"The internship helped me build confidence",1
+"Poor communication from management",0
+"I worked on impactful real-world projects",1
+"The workload was too heavy for an intern",0
+"My mentor was patient and very helpful",1
+"I was bored most of the time",0
+"Great learning experience with hands-on tasks",1
+"I had no clarity on my responsibilities",0
+"The team culture was very welcoming",1
+"I felt micromanaged and stressed",0
+"I learned industry best practices",1

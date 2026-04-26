@@ -5,11 +5,11 @@ from transformers import pipeline
 # ---------------------------
 # Load model (cached for speed)
 # ---------------------------
-@st.cache_resource
-def load_model():
-    return pipeline("sentiment-analysis")
+import pickle
 
-model = load_model()
+model = pickle.load(open("model.pkl", "rb"))
+vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+
 
 # ---------------------------
 # App UI
@@ -30,15 +30,22 @@ text = st.text_area("Enter an internship experience:")
 
 if st.button("Analyze Text"):
     if text.strip() != "":
-        result = model(text)[0]
 
-        label = result["label"]
-        score = result["score"]
+        input_vec = vectorizer.transform([text])
+        prediction = model.predict(input_vec)[0]
 
-        if label == "POSITIVE":
-            st.success(f"Positive 😊 ({score:.2f})")
+        if prediction == 1:
+            st.success("Positive 😊")
         else:
-            st.error(f"Negative 😠 ({score:.2f})")
+            st.error("Negative 😠")
+
+        # label = result["label"]
+        # score = result["score"]
+
+        # if label == "POSITIVE":
+        #     st.success(f"Positive 😊 ({score:.2f})")
+        # else:
+        #     st.error(f"Negative 😠 ({score:.2f})")
     else:
         st.warning("Please enter some text.")
 
@@ -55,13 +62,19 @@ if uploaded_file is not None:
     if "review" not in df.columns:
         st.error("CSV must contain a 'review' column.")
     else:
-        st.write("Preview:")
-        st.dataframe(df.head())
 
-        results = model(df["review"].tolist())
+        # Convert text → vectors
+        input_vec = vectorizer.transform(df["review"])
 
-        df["sentiment"] = [r["label"] for r in results]
-        df["confidence"] = [r["score"] for r in results]
+        # Predict sentiment
+        predictions = model.predict(input_vec)
+
+        df["sentiment"] = ["Positive 😊" if p == 1 else "Negative 😠" for p in predictions]
+
+        # Optional: confidence (if using LogisticRegression)
+        if hasattr(model, "predict_proba"):
+            probs = model.predict_proba(input_vec)
+            df["confidence"] = probs.max(axis=1)
 
         st.write("Results:")
         st.dataframe(df)
@@ -69,3 +82,10 @@ if uploaded_file is not None:
         # Summary
         st.subheader("📊 Summary")
         st.write(df["sentiment"].value_counts())
+
+# st.subheader("Confidence Distribution")
+
+# fig2, ax2 = plt.subplots()
+# ax2.hist(df["confidence"], bins=10)
+
+# st.pyplot(fig2)
